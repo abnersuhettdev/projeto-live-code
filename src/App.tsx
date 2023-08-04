@@ -59,7 +59,13 @@ function App() {
 				gap: "10px",
 			}}
 		>
-			<input value={cep} type="text" onChange={(ev) => setCep(ev.target.value)} />
+			<label htmlFor="cep">Insira um Cep:</label>
+			<input
+				value={cep}
+				type="text"
+				name="cep"
+				onChange={(ev) => setCep(ev.target.value)}
+			/>
 			<button onClick={getCep}>Enviar</button>
 
 			<CepComponent
