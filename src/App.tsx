@@ -10,10 +10,10 @@ interface RetornoApi {
 function CepComponent({ logradouro, cidade, localidade, uf }: RetornoApi) {
 	return (
 		<div>
-			<p>{logradouro}</p>
-			<p>{cidade}</p>
-			<p>{localidade}</p>
-			<p>{uf}</p>
+			<p>Cidade: {cidade ? cidade : "Cidade não localizada"}</p>
+			<p>Logradouro: {logradouro ? logradouro : "Logradouro não localizado"}</p>
+			<p>Localidade: {localidade ? localidade : "Localidade não encontrada"}</p>
+			<p>Estado: {uf ? uf : "Estado não localido"}</p>
 		</div>
 	);
 }
@@ -49,7 +49,16 @@ function App() {
 	}
 
 	return (
-		<>
+		<div
+			style={{
+				height: "100vh",
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "center",
+				justifyContent: "center",
+				gap: "10px",
+			}}
+		>
 			<input value={cep} type="text" onChange={(ev) => setCep(ev.target.value)} />
 			<button onClick={getCep}>Enviar</button>
 
@@ -59,7 +68,7 @@ function App() {
 				logradouro={data.logradouro}
 				uf={data.uf}
 			/>
-		</>
+		</div>
 	);
 }
 
